@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.vekao.learny.application.IApiService;
+import fr.vekao.learny.model.category.Category;
 import fr.vekao.learny.model.course.Course;
 
 @RestController
@@ -19,6 +20,13 @@ public class ApiController {
 	@Autowired
 	IApiService apiService;
 
+	@CrossOrigin
+	@GetMapping("/categories")
+	@ResponseBody
+	public List<Category> allCategories() {
+		return apiService.allCategories();
+	}
+	
 	@CrossOrigin
 	@GetMapping("/courses")
 	@ResponseBody
