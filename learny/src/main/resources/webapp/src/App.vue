@@ -16,6 +16,13 @@ export default {
 </script>
 
 <style>
-#app {
-}
+  #app {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+
+  
 </style>

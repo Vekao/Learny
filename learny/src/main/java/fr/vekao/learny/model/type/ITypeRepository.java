@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ITypeRepository extends JpaRepository<Type, Long> {
 	
+	@Override
 	List<Type> findAll();
 	
 }
