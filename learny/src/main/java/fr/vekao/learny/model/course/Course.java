@@ -64,6 +64,10 @@ public class Course {
 			@NotNull String thumbnail
 	) {
 		this.title = title;
+		this.category = category;
+		this.type = type;
+		this.views = views;
+		this.publishDate = publishDate;
 		this.thumbnail = thumbnail;
 	}
 	

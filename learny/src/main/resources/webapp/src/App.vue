@@ -1,28 +1,44 @@
 <template>
   <div id="app">
-    <NavBar/>
+    <div id="nav">
+      <HeaderMain />
+    </div>
+    <router-view/>
+    <FooterMain />
   </div>
 </template>
 
 <script>
-import NavBar from './components/NavBar.vue'
+import HeaderMain from "@/views/partials/Header.vue";
+import FooterMain from "@/views/partials/Footer.vue";
 
 export default {
-  name: 'app',
   components: {
-    NavBar
+    HeaderMain,
+    FooterMain 
   }
 }
 </script>
 
-<style>
-  #app {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-  }
-  
+<style lang="scss">
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-  
+body {
+  font-size: 16px;
+}
+
+
+#app {
+  color: #323232;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 1px;
+}
+
+.clickable, .btn, .link {
+    cursor: pointer;
+}
 </style>

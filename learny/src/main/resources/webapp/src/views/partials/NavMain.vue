@@ -1,12 +1,17 @@
 <template>
-    <nav id="menu">
-        <a id="nav_home" href="/">Learny</a>
+
+ 
+    <nav id="nav_main">
         <a v-for="category in categories" v-bind:key="category">{{ category.label }}</a>
     </nav>
+
 </template>
 
 <script>
+
+// FOR DYNAMIC MENU :
 import axios from "axios";
+
 const URL = "http://localhost:8090/api/categories";
 export default {
     name: "NavBar",
@@ -28,16 +33,7 @@ export default {
 }
 </script>
 
-<style>
-#nav_home {
-    background-image: url(../assets/logo.svg);
-    display: inline-block;
-    background-size: 55px auto;
-    background-repeat: no-repeat;
-    text-indent: -9999999999999px;
-    overflow: hidden;
-}
-
+<style lang="scss" scoped>
 #menu {
     display: flex;
     justify-content: space-between;
@@ -52,8 +48,5 @@ export default {
     font-size: 1.375em;
 }
 
-nav {
-    height: 74px;
-}
-
 </style>
+
