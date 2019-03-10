@@ -22,6 +22,16 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     },
     {
+      path: '/gallery',
+      name: 'allgallery',
+      component: () => import(/* webpackChunkName: "about" */ './views/GalleryAllCourses.vue')
+    },
+    {
+      path: '/gallery/category/:category',
+      name: 'gallery',
+      component: () => import(/* webpackChunkName: "about" */ './views/GalleryCourses.vue')
+    },
+    {
       path: "*",
       name: "404",
       component: () => import(/* webpackChunkName: "404" */ './views/NotFound.vue')

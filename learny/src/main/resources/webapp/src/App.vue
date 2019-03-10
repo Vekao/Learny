@@ -31,6 +31,10 @@ body {
   font-size: 16px;
 }
 
+.page {
+  position :relative;
+  min-height: calc(100vh - (74px + 120px))
+}
 
 #app {
   color: #323232;

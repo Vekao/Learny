@@ -1,8 +1,6 @@
 <template>
-
- 
     <nav id="nav_main">
-        <a v-for="category in categories" v-bind:key="category">{{ category.label }}</a>
+        <router-link v-for="category in categories" :key="category" :to="'/gallery/category/' + category.id">{{ category.label }}</router-link>
     </nav>
 
 </template>
@@ -23,7 +21,7 @@ export default {
     },
     methods: {
        getCategories() {
-           return axios.get(URL).then(response => {
+           axios.get(URL).then(response => {
                this.categories = response.data;
            }).catch(error => {
                alert(error);
@@ -34,18 +32,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#menu {
+#nav_main {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     margin-left: 10%;
     width: 80%;
+    
 }
 
-#menu a {
+#nav_main a {
     color: black;
     font-weight: 300;
     font-size: 1.375em;
+    text-decoration: none;
 }
 
 </style>

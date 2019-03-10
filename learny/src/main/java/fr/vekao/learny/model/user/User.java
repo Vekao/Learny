@@ -2,6 +2,7 @@ package fr.vekao.learny.model.user;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,6 +11,7 @@ import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
 public class User {
 
 	@Id
@@ -69,6 +71,6 @@ public class User {
 		this.newMail = newMail;
 		this.changeDate = changeDate;
 		this.token = token;
-	}
-	
+	};
+
 }
