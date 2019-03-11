@@ -14,7 +14,7 @@ export default {
     },
     methods: {
         getImgUrl: function(img) {
-            return require('../../assets/thumbnails/' + img)
+            return require('../../assets/thumbnails/projets/' + img)
         }
     }
 }
@@ -28,15 +28,19 @@ export default {
     overflow: hidden;
     border: 1px solid #e3e3e3;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    margin-right: 44px;
     img {
         height: 160px;
-        width: 200px;
+        width: 100%;
+        object-fit: cover;
     }
     figcaption {
         text-align: center;
         font-family: 'Open sans', sans-serif;
         font-size: 1em;
-        font-weight: 400;   
+        font-weight: 400;
+        align-self: center;  
+        padding-top: 28px; 
     }
 }
 

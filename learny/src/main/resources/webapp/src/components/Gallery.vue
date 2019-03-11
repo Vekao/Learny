@@ -1,40 +1,84 @@
 <template>
-    <div class="page gallery">
-        <h3>{{ title }}</h3>
-        <h4 v-if="hasSubtitle">{{ subtitle }}</h4>
-        <CourseThumbnail v-for="course in courses" :key="course.id" :img="course.thumbnail" :title="course.title"/>
+    <div class="gallery" :class="{isProject: 'project'}">
+        <header class="titles">
+            <h3>{{ title }}</h3>
+            <h4 v-if="hasSubtitle">{{ subtitle }}</h4>  
+        </header>
+        <div class="thumbnails">
+            <CourseThumbnail v-for="course in courses" :key="course.id" :img="course.thumbnail" :title="course.title"/>
+        </div>  
     </div>
 </template>
 
 <script>
 import CourseThumbnail from "@/components/CourseThumbnail.vue";
 export default {
+    data() {
+        return {
+            isProject: this.props.subtitle === "projets" 
+        }
+    },
+  
     components: {
         CourseThumbnail
     },
     props: { 
         title: String,
-        courses: Object
+        courses: Object,
+        hasSubtitle: Boolean,
+        subtitle: String
     }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 h3 {
     background-color: #323232;
-    background-image: url("../assets/ban.svg");
-    background-repeat: no-repeat;
+    padding-top: 10px;
+    padding-bottom: 12px;
     color: white;
     font-family: 'Open sans', sans-serif;
-    font-weight: 400;
     font-size: 22px;
+    width: 255px;
+    font-weight: 400;
+    text-transform: uppercase; 
+    margin-right:  80px;
+    padding-left: 20px;
+}
+
+h4::before {
+    display: block;
+    content: "";
+    background-color: white;
+    width: 45px;
+    height: 45px;
+    transform: rotate(45deg);
+    margin-left: -103px;
+    margin-top: -7px;
+    position: absolute;
+}
+h4 {
+    font-size: 22px;
+    font-weight: normal;
+    text-transform: capitalize;
+    padding-top: 10px;
+    padding-bottom: 12px;
+}
+
+div.gallery {
+    padding: 20px 6%;  
+}
+
+.titles {
+    display: flex;
     margin-bottom: 25px;
-    text-transform: uppercase;  
 }
 
-.gallery {
-    padding: 20px 6%;
-    height: 300px;  
+.thumbnails {
+    display: flex;
 }
-
 </style>
+
+
+
+

@@ -1,7 +1,12 @@
 <template>
     <main class="page gallery">
         <h2>{{ title }}</h2>
-        <Gallery v-for="section in sections" :key="section.id" :title="section.title" />
+        <Gallery v-for="section in sections" 
+                :key="section.id" 
+                :title="section.title" 
+                :courses="section.courses" 
+                :hasSubtitle="section.hasSubtitle"
+                :subtitle="section.subtitle"/>
     </main>
 </template>
 
@@ -34,7 +39,27 @@ export default {
     
     methods: {
         getCategories() {
-            this.title = "tous les cours";
+            this.title = "tous les cours",
+            this.sections = [
+                { id: 11, title: "tricot", hasSubtitle: true, subtitle: "techniques", courses: []},
+                { id: 12, title: "tricot", hasSubtitle: true, subtitle: "projets", courses: [
+                    { id: 1, title: "Tricoter un bonnet", thumbnail: "vignette_01.jpg"},
+                    { id: 2, title: "Tricoter des mitaines", thumbnail: "vignette_02.jpg"},
+                    { id: 3, title: "Tricoter un snood", thumbnail: "vignette_03.jpg"}
+                ]},
+                { id: 21, title: "crochet", hasSubtitle: true, subtitle: "techniques", courses: []},
+                { id: 22, title: "crochet", hasSubtitle: true, subtitle: "projets", courses: [
+                    { id: 4, title: "Tricoter un bonnet", thumbnail: "vignette_01.jpg"},
+                    { id: 5, title: "Tricoter des mitaines", thumbnail: "vignette_02.jpg"},
+                    { id: 6, title: "Tricoter un snood", thumbnail: "vignette_03.jpg"}
+                ]},
+                { id: 31, title: "couture", hasSubtitle: true, subtitle: "techniques", courses: []},
+                { id: 32, title: "couture", hasSubtitle: true, subtitle: "projets", courses: [
+                    { id: 7, title: "Tricoter un bonnet", thumbnail: "vignette_01.jpg"},
+                    { id: 8, title: "Tricoter des mitaines", thumbnail: "vignette_02.jpg"},
+                    { id: 9, title: "Tricoter un snood", thumbnail: "vignette_03.jpg"}
+                ]}
+            ]
         }
     }
 }
@@ -47,11 +72,9 @@ h2 {
     font-weight: 600;
     font-size: 40px;
     text-align: center;
+    text-transform: uppercase; 
 }
 
-.gallery {
-    margin-top: 46px;
-}
 </style>
 
 

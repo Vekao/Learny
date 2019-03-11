@@ -36,10 +36,12 @@ export default {
         getCategory() {
             //this.title = category.title,
             this.sections = [
-                { id: 1, title: "techniques", hasSubtitle: false, courses: [
-                    { id: 1, title: "tricoter en rond", thumbnail: "snood_rouge_06_medium2.jpg"}
-                ]},
-                { id: 2, title: "projets", hasSubtitle: false, courses: []}
+                { id: 1, title: "techniques", hasSubtitle: false, courses: []},
+                { id: 2, title: "projets", hasSubtitle: false, courses: [
+                    { id: 1, title: "Tricoter un bonnet", thumbnail: "vignette_01.jpg"},
+                    { id: 2, title: "Tricoter des mitaines", thumbnail: "vignette_02.jpg"},
+                    { id: 3, title: "Tricoter un snood", thumbnail: "vignette_03.jpg"}
+                ]}
             ]
         }
     }

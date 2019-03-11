@@ -7,7 +7,7 @@
       <ul id="social">
         <li>instagram</li>
         <li>facebook</li>
-        <li>twitter</li>
+        <li>pinterest</li>
       </ul>
   </footer>
 </template>
