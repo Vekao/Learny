@@ -6,6 +6,20 @@
         </p>
     </div>
 </template>
-<style>
+<style lang="scss" scoped>
+p {
+    text-align: center;
+    font-size: 2em;
+}
+h1 {
+    text-align: center;
+    font-size: 10em;
+}
+
+.not-found {  
+     margin-top: 5em;
+}
+</style>
+
 
 </style>

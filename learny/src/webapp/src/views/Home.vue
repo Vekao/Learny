@@ -60,6 +60,7 @@ h2 {
   font-weight: 500;
 }
 
+
 #logo {
   height: 300px;
   align-items: center;
@@ -67,7 +68,7 @@ h2 {
 
 #btn {
   align-items: center;
-  background-color: #7B1FA2;
+  background-color: #7c2993;
   border: none;
   border-radius: 0.3em;
   color: white;

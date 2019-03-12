@@ -34,29 +34,37 @@ export default {
 <style lang="scss" scoped>
 h3 {
     background-color: #323232;
-    padding-top: 10px;
-    padding-bottom: 12px;
+    padding: 11px 200px 12px 20px;
     color: white;
     font-family: 'Open sans', sans-serif;
     font-size: 22px;
-    width: 255px;
     font-weight: 400;
-    text-transform: uppercase; 
-    margin-right:  80px;
-    padding-left: 20px;
+    text-transform: uppercase;
+    margin-right: 50px;  
 }
 
-h4::before {
-    display: block;
-    content: "";
-    background-color: white;
-    width: 45px;
-    height: 45px;
-    transform: rotate(45deg);
-    margin-left: -103px;
-    margin-top: -7px;
-    position: absolute;
-}
+// h3::after {
+//     content: "";
+//     background-image: url("../../assets/miniban.jpg");
+//     background-repeat: no-repeat;
+//     margin-left: 103px;
+//     width: 45px;
+//     height: 45px;
+    
+//     position: absolute;
+// }
+
+// h4::before {
+//     display: block;
+//     content: "";
+//     background-color: white;
+//     width: 45px;
+//     height: 45px;
+//     transform: rotate(45deg);
+//     margin-left: -103px;
+//     margin-top: -7px;
+//     position: absolute;
+// }
 h4 {
     font-size: 22px;
     font-weight: normal;
@@ -77,6 +85,7 @@ div.gallery {
 .thumbnails {
     display: flex;
 }
+
 </style>
 
 

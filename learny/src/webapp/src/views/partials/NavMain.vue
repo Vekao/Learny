@@ -34,17 +34,17 @@ export default {
 <style lang="scss" scoped>
 #nav_main {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    text-transform: uppercase;
     flex-direction: row;
-    margin-left: 10%;
-    width: 80%;
-    
+    width: 100%;
+    white-space: nowrap;
 }
 
 #nav_main a {
     color: black;
     font-weight: 300;
-    font-size: 1.375em;
+    font-size: 1.25em;
     text-decoration: none;
 }
 
