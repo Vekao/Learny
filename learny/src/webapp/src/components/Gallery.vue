@@ -1,5 +1,5 @@
 <template>
-    <div class="gallery" :class="{isProject: 'project'}">
+    <div class="gallery">
         <header class="titles">
             <h3>{{ title }}</h3>
             <h4 v-if="hasSubtitle">{{ subtitle }}</h4>  
@@ -15,16 +15,15 @@ import CourseThumbnail from "@/components/CourseThumbnail.vue";
 export default {
     data() {
         return {
-            isProject: this.props.subtitle === "projets" 
+            isProject: this.$props.subtitle === "projets" 
         }
     },
-  
     components: {
         CourseThumbnail
     },
     props: { 
         title: String,
-        courses: Object,
+        courses: Array,
         hasSubtitle: Boolean,
         subtitle: String
     }

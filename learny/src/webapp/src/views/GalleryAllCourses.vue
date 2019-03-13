@@ -23,7 +23,7 @@ export default {
     
     data() {
         return {
-            title: '',
+            title: "tous les cours",
             sections: []
         }
     },
@@ -39,7 +39,6 @@ export default {
     
     methods: {
         getCategories() {
-            this.title = "tous les cours",
             this.sections = [
                 { id: 11, title: "tricot", hasSubtitle: true, subtitle: "techniques", courses: []},
                 { id: 12, title: "tricot", hasSubtitle: true, subtitle: "projets", courses: [
