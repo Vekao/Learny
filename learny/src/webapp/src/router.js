@@ -14,7 +14,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/admin-panel',
+      path: '/admin',
       name: 'admin',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -23,9 +23,14 @@ export default new Router({
       children: [
         {
           path: 'create',
-          name: 'create-ressource',
-          component: () => import(/* webpackChunkName: "create-ressource" */ './components/CreateCourse.vue')
+          name: 'create',
+          component: () => import(/* webpackChunkName: "edit-course" */ './components/CreateCourse.vue')
         },
+        {
+          path: 'edit',
+          name: 'edit',
+          component: () => import(/* webpackChunkName: "edit-course" */ './components/EditCourse.vue')
+        }
       ]
     },
     {

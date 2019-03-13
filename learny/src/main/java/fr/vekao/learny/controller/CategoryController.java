@@ -80,7 +80,6 @@ public class CategoryController {
 		}
 
 		catch (Exception ex) {
-
 			result = new ResponseEntity<String>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 

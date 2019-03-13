@@ -1,8 +1,9 @@
 <template>
   <nav id="nav_admin" class="nav">
         <ul class="list">
-            <router-link tag="li" class="link" to="/profile/admin/manage-ressources">Liste des cours</router-link>
-            <li>Editer un cours</li>
+            <router-link tag="li" class="link clickable" to="/admin/create">Créer un cours</router-link>
+            <router-link tag="li" class="link clickable" to="/admin/edit">Editer un cours</router-link>
+            <li>Liste des cours</li>
         </ul>
   </nav>
 </template>
@@ -16,11 +17,15 @@ export default {};
 .nav {
   display: flex;
   flex-direction: column;
-  padding: 10px 0;
+  padding-top: 20%;
+  line-height : 2.5;
   .list {
     list-style: none;
     text-align: left;
     padding-left: 15%;
+    :hover {
+      color: #7c2993;
+    }
   }
 }
 </style>

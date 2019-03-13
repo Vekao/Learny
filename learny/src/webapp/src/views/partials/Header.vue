@@ -2,7 +2,7 @@
     <header id="header_main">
         <Logo />
         <NavMain />
-        <router-link to="/admin-panel" tag="button" class="btn btn-connect">Se connecter</router-link>
+        <router-link to="/admin" tag="button" class="btn btn-connect">Se connecter</router-link>
     </header>
 </template>
 
