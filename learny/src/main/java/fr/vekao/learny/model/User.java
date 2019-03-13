@@ -1,4 +1,4 @@
-package fr.vekao.learny.model.user;
+package fr.vekao.learny.model;
 
 import java.time.LocalDateTime;
 

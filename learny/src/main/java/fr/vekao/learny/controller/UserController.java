@@ -9,23 +9,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.vekao.learny.model.Course;
-import fr.vekao.learny.repository.ICourseRepository;
+import fr.vekao.learny.model.User;
+import fr.vekao.learny.repository.IUserRepository;
 
 @RestController
 @RequestMapping("/api")
-public class CourseController {
+public class UserController {
 
 	@Autowired
-	ICourseRepository courses;
+	IUserRepository users;
 
 	
 	
 	@CrossOrigin
-	@GetMapping("/courses")
+	@GetMapping("/users")
 	@ResponseBody
-	public List<Course> allCourses() {
-		return courses.findAll();
+	public List<User> allUsers() {
+		return users.findAll();
 	}
 	
 }

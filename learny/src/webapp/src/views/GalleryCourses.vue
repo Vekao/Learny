@@ -34,7 +34,7 @@ export default {
     
     methods: {
         getCategory() {
-            //this.title = category.title,
+            this.title = 'Une des catégories',
             this.sections = [
                 { id: 1, title: "techniques", hasSubtitle: false, courses: []},
                 { id: 2, title: "projets", hasSubtitle: false, courses: [

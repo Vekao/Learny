@@ -1,4 +1,4 @@
-package fr.vekao.learny.model.type;
+package fr.vekao.learny.model;
 
 import java.util.List;
 
@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
-import fr.vekao.learny.model.course.Course;
 import lombok.Getter;
 import lombok.Setter;
 

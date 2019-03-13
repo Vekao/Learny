@@ -1,4 +1,4 @@
-package fr.vekao.learny.model.course;
+package fr.vekao.learny.model;
 
 import java.time.LocalDateTime;
 
@@ -9,8 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
-import fr.vekao.learny.model.category.Category;
-import fr.vekao.learny.model.type.Type;
 import lombok.Getter;
 import lombok.Setter;
 
