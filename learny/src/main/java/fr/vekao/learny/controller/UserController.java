@@ -13,16 +13,15 @@ import fr.vekao.learny.model.User;
 import fr.vekao.learny.repository.IUserRepository;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/users")
 public class UserController {
 
 	@Autowired
 	IUserRepository users;
 
 	
-	
 	@CrossOrigin
-	@GetMapping("/users")
+	@GetMapping
 	@ResponseBody
 	public List<User> allUsers() {
 		return users.findAll();

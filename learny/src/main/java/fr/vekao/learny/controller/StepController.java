@@ -17,63 +17,66 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.vekao.learny.model.Course;
-import fr.vekao.learny.repository.ICourseRepository;
+import fr.vekao.learny.model.Step;
+import fr.vekao.learny.repository.IStepRepository;
+
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/courses")
-public class CourseController {
-
+@RequestMapping("/api/steps")
+public class StepController {
+	
 	@Autowired
-	ICourseRepository courses;
-
+	IStepRepository steps;
 	
 	@GetMapping
 	@ResponseBody
-	public List<Course> allCourses() {
-		return courses.findAll();
+	public List<Step> allSteps() {
+		return steps.findAll();
 	}
 	
 	/**
-	 * GET :/courses:/id
-	 * @param id the id of course
-	 * @return response entity 200 with the course on Body
+	 * GET :/steps:/id
+	 * @param id the id of step
+	 * @return response entity 200 with the step on Body
 	 */
 	@GetMapping("/{id}")
-	public ResponseEntity<?> getOneCourse(@PathVariable Long id) {
-		Optional<Course> course = courses.findById(id);
-		if (!course.isPresent())
+	public ResponseEntity<?> getOneStep(@PathVariable Long id) {
+		Optional<Step> step = steps.findById(id);
+		if (!step.isPresent())
 			return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
-		return ResponseEntity.ok(course);
+		return ResponseEntity.ok(step);
 	}
 	
 	/**
-	 * Post : Create new course
+	 * Post : Create new step
 	 *
-	 * @param course to create
-	 * @return course created and ResponseEntity with status 201
+	 * @param step to create
+	 * @return Step created and ResponseEntity with status 201
 	 */
 	@PostMapping
-	public ResponseEntity<?> createCourse(@RequestBody Course course) {
-		return new ResponseEntity<Course>(courses.save(course), HttpStatus.CREATED);
+	public ResponseEntity<?> createStep(@RequestBody Step step) {
+		if (steps.findByNum(step.getNum()) != null) {
+			return new ResponseEntity<String>("Cette étape existe déjà", HttpStatus.CONFLICT);
+		}
+		return new ResponseEntity<Step>(steps.save(step), HttpStatus.CREATED);
 	}
 	
 	/**
-	 * Delete : delete one course
+	 * Delete : delete one step
 	 * 
-	 * @param id to the course
+	 * @param id to the step
 	 * @return responseEntity with status 404 if not exist, 200 if it's delete or Exception with status 500
 	 */
 	@DeleteMapping("/{id}")
-	public ResponseEntity<?> deleteCourse(@PathVariable Long id) {
+	public ResponseEntity<?> deleteStep(@PathVariable Long id) {
 		ResponseEntity<?> result = null;
 
-		if (courses.findById(id) == null) {
-			return new ResponseEntity<String>("Ce cours n'existe pas", HttpStatus.NOT_FOUND);
+		if (steps.findById(id) == null) {
+			return new ResponseEntity<String>("Cette étape n'existe pas", HttpStatus.NOT_FOUND);
 		}
 		try {
-			courses.deleteById(id);
+			steps.deleteById(id);
 			result = new ResponseEntity<>(HttpStatus.OK);
 		}
 		catch (Exception ex) {
@@ -83,13 +86,9 @@ public class CourseController {
 	}
 	
 	@PutMapping
-	public ResponseEntity<?> updateCourse(@RequestBody Course course) {
-		Optional<Course> courseOptional = courses.findById(course.getId());
-		if (!courseOptional.isPresent()) return new ResponseEntity<String>("Cours inexistant", HttpStatus.NOT_FOUND);
-		return new ResponseEntity<>(courses.save(course), HttpStatus.OK);
+	public ResponseEntity<?> updateStep(@RequestBody Step step) {
+		Optional<Step> stepOptional = steps.findById(step.getId());
+		if (!stepOptional.isPresent()) return new ResponseEntity<String>("Etape inexistante", HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(steps.save(step), HttpStatus.OK);
 	}
-	
-	
-	
-	
 }

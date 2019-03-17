@@ -22,13 +22,13 @@ import fr.vekao.learny.repository.ITypeRepository;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/types")
 public class TypeController {
 
 	@Autowired
 	ITypeRepository types;
 
-	@GetMapping("/types")
+	@GetMapping
 	@ResponseBody
 	public List<Type> allTypes() {
 		return types.findAll();
@@ -39,7 +39,7 @@ public class TypeController {
 	 * @param id the id of category
 	 * @return response entity 200 with the category on Body
 	 */
-	@GetMapping("/types/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<?> getOneType(@PathVariable Long id) {
 		Optional<Type> type = types.findById(id);
 		if (!type.isPresent())
@@ -53,7 +53,7 @@ public class TypeController {
 	 * @param project to create
 	 * @return Project created and ResponseEntity with status 201
 	 */
-	@PostMapping("/types")
+	@PostMapping
 	public ResponseEntity<?> createType(@RequestBody Type type) {
 		return new ResponseEntity<Type>(types.save(type), HttpStatus.CREATED);
 	}
@@ -64,7 +64,7 @@ public class TypeController {
 	 * @param id to the project
 	 * @return responseEntity with status 404 if not exist, 200 if it's delete or Exception with status 500
 	 */
-	@DeleteMapping("/types/{id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deleteType(@PathVariable Long id) {
 		ResponseEntity<?> result = null;
 
@@ -85,7 +85,7 @@ public class TypeController {
 
 	}
 	
-	@PutMapping(value = "/types")
+	@PutMapping
 	public ResponseEntity<?> updateType(@RequestBody Type type) {
 		Optional<Type> typeOptional = types.findById(type.getId());
 		if (!typeOptional.isPresent()) return new ResponseEntity<String>("Type inexistant", HttpStatus.NOT_FOUND);

@@ -23,7 +23,7 @@ import fr.vekao.learny.repository.ICategoryRepository;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/categories")
 public class CategoryController {
 
 	@Autowired
@@ -31,7 +31,7 @@ public class CategoryController {
 
 	
 	
-	@GetMapping("/categories")
+	@GetMapping
 	@ResponseBody
 	public List<Category> allCategories() {
 		return categories.findAll();
@@ -42,7 +42,7 @@ public class CategoryController {
 	 * @param id the id of category
 	 * @return response entity 200 with the category on Body
 	 */
-	@GetMapping("/categories/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<?> getOneCategory(@PathVariable Long id) {
 		Optional<Category> category = categories.findById(id);
 		if (!category.isPresent())
@@ -51,12 +51,12 @@ public class CategoryController {
 	}
 	
 	/**
-	 * Post : Create new project
+	 * Post : Create new category
 	 *
-	 * @param project to create
-	 * @return Project created and ResponseEntity with status 201
+	 * @param category to create
+	 * @return Category created and ResponseEntity with status 201
 	 */
-	@PostMapping("/categories")
+	@PostMapping
 	public ResponseEntity<?> createCategory(@RequestBody Category category) {
 		if (categories.findByLabel(category.getLabel()) != null) {
 			return new ResponseEntity<String>("Cette catégorie existe déjà", HttpStatus.CONFLICT);
@@ -67,10 +67,10 @@ public class CategoryController {
 	/**
 	 * Delete : delete one category
 	 * 
-	 * @param id to the project
+	 * @param id to the category
 	 * @return responseEntity with status 404 if not exist, 200 if it's delete or Exception with status 500
 	 */
-	@DeleteMapping("/categories/{id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deleteCategory(@PathVariable Long id) {
 		ResponseEntity<?> result = null;
 

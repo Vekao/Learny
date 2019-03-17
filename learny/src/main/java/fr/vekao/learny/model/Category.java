@@ -9,27 +9,24 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
 @Entity
+@NoArgsConstructor
 public class Category {
 	
 	@Id
-	@Getter
-	@Setter
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Getter
-	@Setter
 	@NotNull
 	private String label;
 	
 	@OneToMany(mappedBy="category")
 	private List<Course> course;
 	
-	protected Category() {}
 	
 	public Category(@NotNull String label) {
 		this.label = label;
