@@ -1,5 +1,5 @@
 <template>
-    <main class="page gallery">
+    <main class="page">
         <h2>{{ title }}</h2>
         <Gallery v-for="section in sections" 
                 :key="section.id" 
