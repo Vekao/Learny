@@ -7,10 +7,14 @@
             <option v-for="category in categories" :key="category">{{ category.label }}</option>  
         </select>
         <label for="">Type</label>
+        
         <select name="select">
+            <option v-for="type in types" :key="type">{{ type.label }}</option>  
+        </select>
+        <!-- <select name="select">
             <option value="value1">Technique</option>
             <option value="value2">Projet</option> 
-        </select>
+        </select> -->
  
         <button>Créer</button>
     </form>
@@ -20,6 +24,7 @@
 export default {
     created() {
         this.$store.dispatch("category/getAll");
+        thi.$store.dispatch("type/getAll");
     },
     data() {
         return {
@@ -33,6 +38,9 @@ export default {
     computed: {
         categories() {
             return this.$store.getters["category/all"]
+        },
+        types() {
+            return this.$store.getters["types/all"]
         }
     },
     methods: {

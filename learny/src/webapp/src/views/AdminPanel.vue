@@ -21,12 +21,12 @@ export default {
 #admin {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: 44px repeat(3, 1fr);
+  grid-template-rows: repeat(8, 1fr);
 }
 
 #aside {
   grid-column: 1 / 3;
-  grid-row: 1 / 5;
+  grid-row: 1 / 9;
   background-color: #a9adb0;
   color: white;
 }
@@ -38,10 +38,11 @@ export default {
     font-family: 'Oswald', sans-serif;
     font-weight: 600;
     grid-column: 3 / 11;
+    grid-row: 1 / 2;
 }
 
 .sub-page {
-  grid-row: 2 / 5;
+  grid-row: 2 / 9;
   grid-column: 3 / 11;
   padding-left: 20px;
 }

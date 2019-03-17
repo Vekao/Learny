@@ -29,11 +29,13 @@ export default {
 
 body {
   font-size: 16px;
+  overflow-x: hidden;
+  width: 100%;  
 }
 
 .page {
   position :relative;
-  min-height: calc(100vh - (74px + 120px))
+  min-height: calc(100vh - (74px + 120px));
 }
 
 #app {

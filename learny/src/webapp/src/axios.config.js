@@ -2,7 +2,7 @@ import axios from "axios";
 // import auth from "./utils/auth";
 import store from "./store/store"
 
-axios.defaults.baseURL = "http://localhost:8090/api/"; // le port de votre serveur
+axios.defaults.baseURL = "http://localhost:8080/api/"; // le port de votre serveur
 
 /*
 

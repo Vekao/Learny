@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.vekao.learny.model.Course;
 import fr.vekao.learny.repository.ICourseRepository;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class CourseController {
@@ -29,7 +30,7 @@ public class CourseController {
 
 	
 	
-	@CrossOrigin
+	
 	@GetMapping("/courses")
 	@ResponseBody
 	public List<Course> allCourses() {

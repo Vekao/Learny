@@ -1,7 +1,9 @@
 <template>
   <nav id="nav_admin" class="nav">
         <ul class="list">
-            <router-link tag="li" class="link clickable" to="/admin/create">Créer un cours</router-link>
+            <router-link tag="li" class="link clickable" to="/admin/create-category">Créer une catégorie</router-link>
+            <router-link tag="li" class="link clickable" to="/admin/manage-category">Gérer les catégories</router-link>
+            <router-link tag="li" class="link clickable" to="/admin/create-course">Créer un cours</router-link>
             <router-link tag="li" class="link clickable" to="/admin/edit">Editer un cours</router-link>
             <li>Liste des cours</li>
         </ul>

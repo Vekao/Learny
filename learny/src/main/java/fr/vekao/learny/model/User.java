@@ -1,6 +1,6 @@
 package fr.vekao.learny.model;
 
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,10 +43,10 @@ public class User {
 	@NotNull
 	private String newMail;
 	
-	@Getter
-	@Setter
-	@NotNull
-	private LocalDateTime changeDate;
+//	@Getter
+//	@Setter
+//	@NotNull
+//	private LocalDateTime changeDate;
 	
 	@Getter
 	@Setter
@@ -61,7 +61,7 @@ public class User {
 			@NotNull String mail,
 			@NotNull int role,
 			@NotNull String newMail,
-			@NotNull LocalDateTime changeDate,
+//			@NotNull LocalDateTime changeDate,
 			@NotNull String token
 	) {
 		this.username = username;
@@ -69,7 +69,7 @@ public class User {
 		this.mail = mail;
 		this.role = role;
 		this.newMail = newMail;
-		this.changeDate = changeDate;
+//		this.changeDate = changeDate;
 		this.token = token;
 	};
 

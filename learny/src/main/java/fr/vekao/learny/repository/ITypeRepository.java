@@ -11,4 +11,6 @@ public interface ITypeRepository extends JpaRepository<Type, Long> {
 	@Override
 	List<Type> findAll();
 	
+	List<Type> findByLabel(String label);
+	
 }

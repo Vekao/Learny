@@ -1,17 +1,7 @@
 <template>
-    <form id="form-course" @submit="$event.preventDefault();postCourse();">
-        <label for="">Titre du cours</label>
-        <input type="text" v-model="course.title">
-        <label for="">Catégorie</label>
-        <select name="select">
-            <option v-for="(category, i) in categories" :key="i">{{ category.label }}</option>  
-        </select>
-        <label for="">Type</label>
-        <select name="select">
-            <option value="value1">Technique</option>
-            <option value="value2">Projet</option> 
-        </select>
- 
+    <form id="form-course" @submit="$event.preventDefault();$store.dispatch('category/create', category);">
+        <label for="">Label de la catégorie</label>
+        <input type="text" v-model="category.label">
         <button>Créer</button>
     </form>
 </template>
@@ -23,25 +13,11 @@ export default {
     },
     data() {
         return {
-            course: {
-                title: null,
-                category: null,
-                type: null
+            category: {
+                label: null
             }
         }
     },
-    computed: {
-        categories() {
-            return this.$store.getters["category/all"]
-        }
-    },
-    methods: {
-        postCourse() {
-            console.log(this.course);
-            console.log("cours à poster...")
-        }
-    }
-
 }
 </script>
 

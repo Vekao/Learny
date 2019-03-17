@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.vekao.learny.model.Category;
 import fr.vekao.learny.repository.ICategoryRepository;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class CategoryController {
@@ -29,7 +30,7 @@ public class CategoryController {
 	ICategoryRepository categories;
 
 	
-	@CrossOrigin
+	
 	@GetMapping("/categories")
 	@ResponseBody
 	public List<Category> allCategories() {
@@ -55,8 +56,11 @@ public class CategoryController {
 	 * @param project to create
 	 * @return Project created and ResponseEntity with status 201
 	 */
-	@PostMapping(value = "/categories")
+	@PostMapping("/categories")
 	public ResponseEntity<?> createCategory(@RequestBody Category category) {
+		if (categories.findByLabel(category.getLabel()) != null) {
+			return new ResponseEntity<String>("Cette catégorie existe déjà", HttpStatus.CONFLICT);
+		}
 		return new ResponseEntity<Category>(categories.save(category), HttpStatus.CREATED);
 	}
 	
@@ -87,13 +91,11 @@ public class CategoryController {
 
 	}
 	
-	@PutMapping(value = "/categories")
-	public ResponseEntity<?> updateProject(@RequestBody Category category) {
+	@PutMapping
+	public ResponseEntity<?> updateCategory(@RequestBody Category category) {
 		Optional<Category> categoryOptional = categories.findById(category.getId());
 		if (!categoryOptional.isPresent()) return new ResponseEntity<String>("Catégorie inexistante", HttpStatus.NOT_FOUND);
 		return new ResponseEntity<>(categories.save(category), HttpStatus.OK);
 	}
-	
-	
-	
+		
 }

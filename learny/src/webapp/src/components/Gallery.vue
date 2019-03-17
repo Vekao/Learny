@@ -30,40 +30,41 @@ export default {
 }
 </script>
 
+<style>
+
+.thumbnails {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+</style>
+
+
 <style lang="scss" scoped>
+//gallery courses title
 h3 {
     background-color: #323232;
     padding: 11px 200px 12px 20px;
     color: white;
     font-family: 'Open sans', sans-serif;
-    font-size: 22px;
+    font-size: 1.25em;
     font-weight: 400;
     text-transform: uppercase;
-    margin-right: 50px;  
+    margin-right: 50px;
+    ::after {
+        content: "";
+        position: absolute;
+        right: 0px;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-right: 20px solid red;
+        border-top: 30px solid transparent;
+        border-bottom: 24px solid transparent;
+    }  
 }
 
-// h3::after {
-//     content: "";
-//     background-image: url("../../assets/miniban.jpg");
-//     background-repeat: no-repeat;
-//     margin-left: 103px;
-//     width: 45px;
-//     height: 45px;
-    
-//     position: absolute;
-// }
 
-// h4::before {
-//     display: block;
-//     content: "";
-//     background-color: white;
-//     width: 45px;
-//     height: 45px;
-//     transform: rotate(45deg);
-//     margin-left: -103px;
-//     margin-top: -7px;
-//     position: absolute;
-// }
 h4 {
     font-size: 22px;
     font-weight: normal;
@@ -81,9 +82,7 @@ div.gallery {
     margin-bottom: 25px;
 }
 
-.thumbnails {
-    display: flex;
-}
+
 
 </style>
 

@@ -12,4 +12,6 @@ public interface ICategoryRepository extends JpaRepository<Category, Long> {
 	List<Category> findAll();
 	
 	List<Category> findByLabel(String label);
+	
+
 }

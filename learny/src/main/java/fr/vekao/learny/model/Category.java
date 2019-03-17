@@ -27,12 +27,13 @@ public class Category {
 	private String label;
 	
 	@OneToMany(mappedBy="category")
-	private List<Course> courses;
+	private List<Course> course;
 	
 	protected Category() {}
 	
 	public Category(@NotNull String label) {
 		this.label = label;
 	}
-	
+
+
 }
