@@ -1,6 +1,7 @@
 package fr.vekao.learny.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 //import java.time.LocalDateTime;
 
@@ -8,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 import lombok.Data;
@@ -37,12 +39,14 @@ public class User {
 	@NotNull
 	private String newMail;
 
-
 	@NotNull
 	private LocalDateTime changeDate;
 	
 	@NotNull
 	private String token;
+	
+	@OneToMany
+	private List<Course> course;
 	
 	public User(
 			@NotNull String username,

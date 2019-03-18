@@ -11,7 +11,6 @@ public interface ICategoryRepository extends JpaRepository<Category, Long> {
 	@Override
 	List<Category> findAll();
 	
-	List<Category> findByLabel(String label);
+	Category findByLabel(String label);
 	
-
 }

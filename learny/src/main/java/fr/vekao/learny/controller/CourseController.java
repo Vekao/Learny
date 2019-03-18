@@ -89,7 +89,4 @@ public class CourseController {
 		return new ResponseEntity<>(courses.save(course), HttpStatus.OK);
 	}
 	
-	
-	
-	
 }
