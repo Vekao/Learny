@@ -3,6 +3,7 @@ import axios from "axios";
 export default {
     namespaced: true,
     state: {
+        currentCategory: null,
         categories: []
     },
     getters: {
@@ -15,6 +16,9 @@ export default {
                     return cat.id === id
                 })[0];
             }
+        },
+        current(state) {
+            return state.currentCategory;
         }
     },
     mutations: {
@@ -31,8 +35,14 @@ export default {
                 category => category.id != id
             );
         },
-        
-       
+        updateCategory(state, cat) {
+            console.log("todo update cat", state, cat);
+              // state
+              // state.categories = cats;
+        },
+        setCurrentCategory(state, cat) {
+            state.currentCategory = cat;
+        }
     },
     actions: {
          getAll(ctx) {
@@ -65,6 +75,17 @@ export default {
                alert(error);
            })  
         },
+        update(ctx, category) {
+            axios
+                .put("/categories/", category)
+                .then(res => {
+                  console.log("success editing category", res);
+                  ctx.commit("updateCategory", category);
+                })
+                .catch(err => {
+                  console.error("error when getting all categories", err);
+                });
+        },
         
-    }
+        }
 }

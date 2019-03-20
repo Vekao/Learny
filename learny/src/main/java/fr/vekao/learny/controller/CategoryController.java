@@ -42,11 +42,11 @@ public class CategoryController {
 	 * @return response entity 200 with the category on Body
 	 */
 	@GetMapping("/{id}")
-	public Category getOneCategory(@PathVariable Long id) {
+	public ResponseEntity<?> getOneCategory(@PathVariable Long id) {
 		Optional<Category> category = categories.findById(id);
-		//if (!category.isPresent())
-		//	return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
-		return category.get();
+		if (!category.isPresent())
+			return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<Category>(category.get(), HttpStatus.OK);
 	}
 	
 	/**
@@ -69,7 +69,6 @@ public class CategoryController {
 	 * @param id to the category
 	 * @return responseEntity with status 404 if not exist, 200 if it's delete or Exception with status 500
 	 */
-	@CrossOrigin
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deleteCategory(@PathVariable Long id) {
 		ResponseEntity<?> result = null;
