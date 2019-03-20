@@ -40,7 +40,7 @@ export default {
 #nav_main a {
   color: black;
   font-weight: 300;
-  font-size: 1.25em;
+  font-size: 1.15em;
   text-decoration: none;
 }
 </style>
