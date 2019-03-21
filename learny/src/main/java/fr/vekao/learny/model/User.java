@@ -45,7 +45,9 @@ public class User {
 	@NotNull
 	private String token;
 	
+	
 	@OneToMany
+//	@JoinColumn(name = "favorite", nullable = false)
 	private List<Course> course;
 	
 	public User(
