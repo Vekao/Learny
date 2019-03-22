@@ -5,12 +5,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @Entity
 @NoArgsConstructor
 public class Step {
@@ -19,24 +22,31 @@ public class Step {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+	/* title of this step */
 	@NotNull
 	private String title;
 	
+	/* step number */
 	@NotNull
 	private int num;
 	
+	/* course this step is from */
 	@NotNull
 	@ManyToOne
 	private Course course;
 	
+	/* Timestamp for video chapter */
 	@NotNull
 	private String timestamp;
 	
-	
+	/* photo of this step */
 	private String photo;
 	
+	/* schematic of this step */
 	private String schematic;
-
+	
+	@OneToOne
+	private Tracking tracking;
 	
 	public Step (
 			@NotNull String title, 

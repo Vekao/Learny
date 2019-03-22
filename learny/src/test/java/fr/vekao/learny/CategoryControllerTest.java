@@ -1,73 +1,63 @@
 package fr.vekao.learny;
 
-import java.util.ArrayList;
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
 
+import fr.vekao.learny.controller.CategoryController;
 import fr.vekao.learny.model.Category;
 import fr.vekao.learny.repository.ICategoryRepository;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@DataJpaTest
 public class CategoryControllerTest {
-
-	@Autowired
-	private MockMvc mvc;
 	
-	@MockBean
+	@Autowired
+	private TestEntityManager entityManager;
+	
+	@Autowired
 	private ICategoryRepository categories;
 	
-	@Autowired
-	private Category category;
-	
+	private CategoryController controller;
+
 	@Test
-	public void createCategory() throws Exception {
+	public void whenFindByLabel_thenReturnCategory() {
+		//given
+		Category test = new Category ("test");
+		entityManager.persist(test);
+		entityManager.flush();
 		
-		List<Category> fausseCategory = new ArrayList<>();
-		fausseCategory.add(new Category("truc"));
-//		
-//		when(Category.allCategories()).thenReturn(fausseCategory);
-//		mvc.perform(get("/api/categories"))
-//					.contentType(MediaType.APPLICATION_JSON)
-//					.andExpect(status().isOk())
-//					.andExpect(jsonPath("$[0].name, is(truc")));
+		//when
+		Category found = categories.findByLabel(test.getLabel());
+		
+		//then
+		assertThat(found.getLabel()).isEqualTo(test.getLabel());
 	}
-//	@TestConfiguration
-//	static class CategoryControllerTestConfiguration {
-//		
-//		@Bean
-//		public CategoryController categoryController() {
-//			return new CategoryController();
-//		}
-//	}
-//	
-//	@Autowired
-//	private CategoryController categoryController;
-//	
-//	@MockBean
-//	private ICategoryRepository categories;
-//	
-//	@Before
-//	public void setUp() {
-//		Category test1 = new Category("test1");
-//		
-//		
-//		Mockito.when(categories.findByLabel(test1.getLabel()))
-//			.thenReturn(test1);
-//	}
-//	
-//	@Test
-//	public void whenValidLabel_thenCategoryShouldBeFound() {
-//		String label = "test1";
-//		ResponseEntity<?> response = categoryController.getOneCategory((long) 1);
-//		Category found = (Category) response.getBody();
-//		assertThat(found.getLabel()).isEqualTo(label);
-//	}
+
+	@Test
+	public void testGetAllCategories() {
+		Category cat1 = new Category("category 1");
+		Category cat2 = new Category("category 2");
+		entityManager.persist(cat1);
+		entityManager.persist(cat2);
+		entityManager.flush();
+		
+		List<Category> cats = controller.allCategories();
+		
+		assertThat(cats.size()).isEqualTo(2);
+		assertThat(cats.get(0).getLabel()).isEqualTo(cat1.getLabel());
+		assertThat(cats.get(1).getLabel()).isEqualTo(cat2.getLabel());
+	}
+	
+
+	
+	
+	
 }

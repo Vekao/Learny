@@ -9,13 +9,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @Entity
 @NoArgsConstructor
 public class User {
@@ -47,7 +50,7 @@ public class User {
 	
 	
 	@OneToMany
-//	@JoinColumn(name = "favorite", nullable = false)
+	@JoinTable(name="favorite")
 	private List<Course> course;
 	
 	public User(
