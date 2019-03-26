@@ -1,9 +1,11 @@
 <template>
     <div class="list">
-        <figure class="thumbnail">
-            <img :src="getImgUrl(img)" alt=""/>
-            <figcaption>{{ title }}</figcaption>
-        </figure>
+        <router-link class="clickable" to="/course">
+            <figure class="thumbnail">
+                <img :src="getImgUrl(img)" alt=""/>
+                <figcaption>{{ title }}</figcaption>
+            </figure>
+        </router-link>
     </div>
    
     
@@ -33,9 +35,6 @@ export default {
     margin-right: 50px;
     min-width: 200px;
     width: 200px;
-    :hover {
-       box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16); 
-    }
     img {
         border-radius: 0.3em 0.3em 0 0;
         height: 160px;
