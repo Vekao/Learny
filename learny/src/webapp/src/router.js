@@ -65,7 +65,7 @@ export default new Router({
       component: () => import( /* webpackChunkName: "about" */ './views/GalleryCourses.vue')
     },
     {
-      path: '/course',
+      path: '/course/:course',
       name: 'course',
       component: () => import( /* webpackChunkName: "course" */ './views/Course.vue')
     },

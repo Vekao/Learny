@@ -1,16 +1,33 @@
 <template>
-    <main class="course page">
-        <h2>TITRE</h2>
-        <h3>Catégorie</h3>
+<div class="course page">
+    <header>
+        <h2>{{ currentCourse.category.label }}</h2>
+        <h3>{{ currentCourse.title }}</h3>
+    </header>
+    <main >
         <CourseViewer />
     </main>
+</div>
+
 </template>
 
 <script>
 import CourseViewer from "@/components/CourseViewer.vue";
 export default {
-    components:{
+    components: {
         CourseViewer
+    },
+    props: {
+        title: String,
+        category: String
+    },
+    computed: {
+        currentCourse() {
+            return this.$store.getters["course/byId"]
+        }
+    },
+    created() {
+        this.$store.dispatch("course/getById", this.$route.params.course);
     }
 }
 
@@ -39,5 +56,6 @@ h3 {
     font-weight: 600;
     font-family: "Open Sans", sans-serif;
     margin-left: 47px;
+    margin-top: 10px;
 }
 </style>

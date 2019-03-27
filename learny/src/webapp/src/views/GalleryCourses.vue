@@ -11,7 +11,6 @@
 </template>
 
 <script>
-// import axios from "axios";
 import Gallery from "@/components/Gallery.vue";
 
 

@@ -5,7 +5,7 @@
             <h4 v-if="hasSubtitle">{{ subtitle }}</h4>  
         </header>
         <div class="thumbnails">
-            <CourseThumbnail v-for="course in courses" :key="course.id" :img="course.thumbnail" :title="course.title"/>
+            <CourseThumbnail v-for="course in courses" :key="course.id" :img="course.thumbnail" :title="course.title" :id="course.id"/>
         </div>  
     </div>
 </template>

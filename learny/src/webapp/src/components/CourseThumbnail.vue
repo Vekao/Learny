@@ -1,6 +1,6 @@
 <template>
     <div class="list">
-        <router-link class="clickable" to="/course">
+        <router-link class="clickable" :to="'/course/' + id">
             <figure class="thumbnail">
                 <img :src="getImgUrl(img)" alt=""/>
                 <figcaption>{{ title }}</figcaption>
@@ -14,6 +14,7 @@
 <script>
 export default {
     props: {
+        id: Number,
         img: String,
         title: String
     },

@@ -25,30 +25,30 @@ export default {
     },
     actions: {
          getAll(ctx) {
-           axios.get("/categories")
+           axios.get("/types")
            .then(res => {
                console.log("response from server =>", res.data)
-               ctx.commit("setCategories", res.data)
+               ctx.commit("setTypes", res.data)
            })
            .catch(err => {
                alert(error);
            })
         },
-        create(ctx, category) {
-           axios.post("/categories", category)
+        create(ctx, type) {
+           axios.post("/types", type)
            .then(res => {
                console.log("response from server =>", res.data)
-               ctx.commit("setCategories", res.data)
+               ctx.commit("setTypes", res.data)
            })
            .catch(err => {
                alert(error);
            })  
         },
-        delete(ctx, category) {
-           axios.delete("/categories", category)
+        delete(ctx, type) {
+           axios.delete("/types", type)
            .then(res => {
                console.log("response from server =>", res.data)
-               ctx.commit("setCategories", res.data)
+               ctx.commit("setTypes", res.data)
            })
            .catch(err => {
                alert(error);
