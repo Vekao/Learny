@@ -4,6 +4,10 @@ import router from './router'
 import config from "./axios.config"
 import store from './store/store'
 
+import BootstrapVue from 'bootstrap-vue'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 
 new Vue({

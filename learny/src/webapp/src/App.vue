@@ -11,6 +11,8 @@
 <script>
 import HeaderMain from "@/views/partials/Header.vue";
 import FooterMain from "@/views/partials/Footer.vue";
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
   components: {
@@ -21,6 +23,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 * {
   padding: 0;
   margin: 0;
