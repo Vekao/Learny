@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import config from "./axios.config"
+import config from './axios.config'
 import store from './store/store'
 
 import BootstrapVue from 'bootstrap-vue'

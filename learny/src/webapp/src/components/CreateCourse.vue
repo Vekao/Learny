@@ -1,14 +1,18 @@
 <template>
     <div>
         <CourseParam />
+        <CourseVideo />    
     </div>
 </template>
 
 <script>
-import CourseParam from "@/components/CourseParam.vue"
+import CourseParam from "@/components/CourseParam.vue";
+import CourseVideo from "@/components/CourseVideo.vue";
+
 export default {
     components: {
-        CourseParam
+        CourseParam,
+        CourseVideo
     }
 }
 </script>

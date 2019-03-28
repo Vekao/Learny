@@ -22,6 +22,7 @@ export default {
 .fab:hover {
   color: #7c2993;
   transition: all 0.5s;
+  text-decoration: none;
 }
 .fab {
   transition: all 0.5s;

@@ -66,16 +66,21 @@ h2 {
   align-items: center;
 }
 
-#btn {
+.btn {
   align-items: center;
   background-color: #7c2993;
-  border: none;
+  border: 1px solid #7c2993;
   border-radius: 0.3em;
   color: white;
   font-family: 'Open sans', sans-serif;
   font-size: 1.125em;
   margin: 0 auto;
   padding: 10px 20px;
+  &:hover {
+    background-color: white;
+    border: 1px solid #7c2993;
+    color: #7c2993;
+  }
 }
 
 </style>
