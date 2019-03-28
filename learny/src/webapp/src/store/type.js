@@ -5,6 +5,7 @@ export default {
     state: {
         types: []
     },
+    
     getters: {
         all(state) {
             return state.types;
@@ -17,43 +18,44 @@ export default {
             }
         }
     },
+    
     mutations: {
         setTypes(state, types) {
             state.types = types;
         }
         
     },
+    
     actions: {
-         getAll(ctx) {
-           axios.get("/types")
-           .then(res => {
-               console.log("response from server =>", res.data)
-               ctx.commit("setTypes", res.data)
-           })
-           .catch(err => {
-               alert(error);
-           })
+        getAll(ctx) {
+            axios.get("/types")
+            .then(res => {
+                console.log("response from server =>", res.data)
+                ctx.commit("setTypes", res.data)
+            })
+            .catch(err => {
+                alert(error);
+            })
         },
         create(ctx, type) {
-           axios.post("/types", type)
-           .then(res => {
-               console.log("response from server =>", res.data)
-               ctx.commit("setTypes", res.data)
-           })
-           .catch(err => {
-               alert(error);
-           })  
+            axios.post("/types", type)
+            .then(res => {
+                console.log("response from server =>", res.data)
+                ctx.commit("setTypes", res.data)
+            })
+            .catch(err => {
+                alert(error);
+            })  
         },
         delete(ctx, type) {
-           axios.delete("/types", type)
-           .then(res => {
-               console.log("response from server =>", res.data)
-               ctx.commit("setTypes", res.data)
-           })
-           .catch(err => {
-               alert(error);
-           })  
+            axios.delete("/types", type)
+            .then(res => {
+                console.log("response from server =>", res.data)
+                ctx.commit("setTypes", res.data)
+            })
+            .catch(err => {
+                alert(error);
+            })  
         },
-        
     }
 }

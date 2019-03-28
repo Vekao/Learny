@@ -54,7 +54,6 @@ export default {
         font-family: 'Open Sans', sans-serif;
         font-size: 0.8em; 
     }
-    
 }
 
 </style>
